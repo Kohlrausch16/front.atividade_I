@@ -9,6 +9,12 @@ class UserAxios{
        const foundUser =  await axios.get<User[]>(`${apiKey}/usuario`);
        return foundUser.data;
     }
+
+    async getUserById(id: string): Promise<User>{
+       const foundUser =  await axios.get<User>(`${apiKey}/usuario/${id}`);
+       console.log(foundUser);
+       return foundUser.data;
+    }
 }
 
 export default UserAxios;

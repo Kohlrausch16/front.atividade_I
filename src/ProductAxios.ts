@@ -5,9 +5,22 @@ const apiKey = 'http://localhost:4000';
 
 class ProductAxios{
 
-    async getProducts(): Promise<Product[]>{
-       const foundProduct =  await axios.get<Product[]>(`${apiKey}/produto`);
-       return foundProduct.data;
+    async getProducts(){
+        try{
+            const foundProduct =  await axios.get<Product[]>(`${apiKey}/produto`);
+            return foundProduct.data;
+        } catch(err: any){
+            alert(err.message);
+        }
+    }
+
+    async getProductById(id: string){
+        try{
+            const foundProduct = await axios.get<Product>(`${apiKey}/produto/${id}`);
+            return foundProduct.data;
+        } catch(err: any){
+            alert(err.message);
+        }
     }
 }
 

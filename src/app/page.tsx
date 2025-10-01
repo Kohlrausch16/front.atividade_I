@@ -1,5 +1,7 @@
 "use client"
 
+import ProductCard from "@/components/ProductCard";
+import UserCard from "@/components/UserCard";
 import { Product } from "@/Entities/Product";
 import { User } from "@/Entities/User";
 import ProductAxios from "@/ProductAxios";
@@ -31,27 +33,23 @@ export default function Home(){
 
     useEffect(() => {
       fetchData();
-    }, []);
+    }, [optionKey]);
     
     function refetchData(selectedOption: boolean){
-      console.log(foundUser);
       setOptionKey(selectedOption);
       fetchData();
     }
 
-
     return(
         <>
-        
+
         <button onClick={() => refetchData(true)}> Product </button>
         <button onClick={() => refetchData(false)}> User </button>
 
         <a href={`/adicionar/${optionKey ? 'produto' : 'usuario'}`}><button>Adicionar {optionKey ? 'produto' : 'usuario'}</button></a>
 
-        {(optionKey)? 'Products': 'Users'}
-
-        {loading ? <div> Loading... </div> : (optionKey) ? <div>{foundProduct?.map((item: Product) => {return item.name})}</div> : <div>{foundUser?.map((item: User) => {return item.name})}</div>}
+        {loading ? <div> Loading... </div> : (optionKey) ? foundProduct?.map((item: Product) => {return <a href={`/produto/${item.id}`}><ProductCard product={item} /></a>}) : <div>{foundUser?.map((item: User) => {return <a href={`/usuario/${item.id}`}><UserCard user={item} /></a>})}</div>}
       
-        </>
+        </>   
     );
 }
