@@ -22,6 +22,24 @@ class ProductAxios{
             alert(err.message);
         }
     }
+
+    async addProduct(product: Product){
+        try{
+            const foundProduct = await axios.post<Product>(`${apiKey}/produto/`, product);
+            return foundProduct.data;
+        } catch(err: any){
+            alert(err.message);
+        }
+    }
+
+    async deleteProduct(id: string){
+        try{
+            const foundProduct = await axios.delete(`${apiKey}/produto/${id}`);
+            return foundProduct.data;
+        } catch(err: any){
+            alert(err.message);
+        }
+    }
 }
 
 export default ProductAxios;
