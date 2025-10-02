@@ -19,7 +19,6 @@ export default function ProductPage(){
     const fetchData = async () => {
         const foundProduct = await axios.getProductById(id as string);
         setProductData(foundProduct);
-        console.log(foundProduct);
         setLoading(false);
     }
 

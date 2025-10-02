@@ -25,8 +25,9 @@ class ProductAxios{
 
     async addProduct(product: Product){
         try{
-            const foundProduct = await axios.post<Product>(`${apiKey}/produto/`, product);
-            return foundProduct.data;
+            const createdProduct = await axios.post<Product>(`${apiKey}/produto/`, product);
+            alert('Produto criado com sucesso');
+            return createdProduct.data;
         } catch(err: any){
             alert(err.message);
         }
@@ -35,6 +36,7 @@ class ProductAxios{
     async deleteProduct(id: string){
         try{
             const foundProduct = await axios.delete(`${apiKey}/produto/${id}`);
+            alert('Produto deletado com sucesso');
             return foundProduct.data;
         } catch(err: any){
             alert(err.message);

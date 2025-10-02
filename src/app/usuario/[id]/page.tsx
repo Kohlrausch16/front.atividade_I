@@ -19,7 +19,6 @@ export default function UserPage(){
     const fetchData = async () => {
         const foundUser = await axios.getUserById(id as string);
         setUserData(foundUser);
-        console.log(foundUser);
         setLoading(false);
     }
 
@@ -40,7 +39,7 @@ export default function UserPage(){
 
     return(
         <>
-            <button onClick={() => deleteUser(userData?.id as string)}> Deletar produto </button>
+            <button onClick={() => deleteUser(userData?.id as string)}> Deletar usuario </button>
             {loading ? <div> Loading... </div> : <div> {userData?.name} - {userData?.userRole} </div> }
         </>
     );
