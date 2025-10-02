@@ -23,6 +23,16 @@ class ProductAxios{
         }
     }
 
+    async updateProduct(id: string, user: Product){
+        try{
+            const createdProduct = await axios.put<Product>(`${apiKey}/produto/${id}`, user);
+            alert('Produto atualizado com sucesso');
+            return createdProduct.data;
+        } catch(err: any){
+            alert(err.message);
+        }
+   }
+
     async addProduct(product: Product){
         try{
             const createdProduct = await axios.post<Product>(`${apiKey}/produto/`, product);

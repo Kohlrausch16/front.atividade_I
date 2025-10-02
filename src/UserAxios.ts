@@ -25,6 +25,17 @@ class UserAxios{
       }
    }
 
+   async updateUser(id: string, user: User){
+      try{
+         const createdUser = await axios.put<User>(`${apiKey}/usuario/${id}`, user);
+         alert('Usuário atualizado com sucesso');
+         return createdUser.data;
+      } catch(err: any){
+         alert(err.message);
+      }
+   }
+
+
    async deleteUser(id: string){
         try{
             const deletedUser = await axios.delete(`${apiKey}/usuario/${id}`);

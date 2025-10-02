@@ -43,8 +43,8 @@ export default function Home(){
     return(
         <>
 
-        <button onClick={() => refetchData(true)}> Product </button>
-        <button onClick={() => refetchData(false)}> User </button>
+        <button onClick={() => refetchData(true)}> Produto </button>
+        <button onClick={() => refetchData(false)}> Usuario </button>
 
         <a href={`/adicionar/${optionKey ? 'produto' : 'usuario'}`}><button>Adicionar {optionKey ? 'produto' : 'usuario'}</button></a>
 
