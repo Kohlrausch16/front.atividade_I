@@ -1,8 +1,7 @@
 "use client"
 import { Product } from "@/Entities/Product";
 import ProductAxios from "@/ProductAxios";
-import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function ProductPage(){
